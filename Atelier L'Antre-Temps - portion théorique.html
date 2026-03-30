@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier Anxiété & Isolement — Script de la Portion Théorique</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #f5f0e8;
+    --accent: #c4622d;
+    --accent-soft: #e8b89a;
+    --muted: #8a8070;
+    --highlight: #f0e6d3;
+    --note-bg: #2a1f3d;
+    --note-text: #e8d5ff;
+    --divider: #d4c4a8;
+  }
+
+  @media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121212;
+    --highlight:#372d16;
+    --ink: #f5f0e8;
+  }
+}
+  
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: var(--paper);
+color: var(--ink);
+font-family: 'DM Sans', sans-serif;
+font-weight: 300;
+line-height: 1.75;
+min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+background: var(--ink);
+color: var(--paper);
+padding: 3.5rem 2rem 2.5rem;
+position: relative;
+overflow: hidden;
+}
+
+header::before {
+content: '';
+position: absolute;
+top: -40px; right: -40px;
+width: 220px; height: 220px;
+border-radius: 50%;
+background: var(--accent);
+opacity: 0.15;
+}
+
+header::after {
+content: '';
+position: absolute;
+bottom: -60px; left: 30%;
+width: 300px; height: 300px;
+border-radius: 50%;
+background: var(--accent-soft);
+opacity: 0.07;
+}
+
+.header-inner {
+max-width: 780px;
+margin: 0 auto;
+position: relative;
+z-index: 1;
+}
+
+.tag {
+display: inline-block;
+font-size: 0.68rem;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--accent-soft);
+margin-bottom: 1rem;
+font-weight: 500;
+}
+
+header h1 {
+font-family: 'Playfair Display', Georgia, serif;
+font-size: clamp(2rem, 5vw, 3.2rem);
+font-weight: 700;
+line-height: 1.15;
+margin-bottom: 1.2rem;
+}
+
+header h1 em {
+font-style: italic;
+color: var(--accent-soft);
+}
+
+.meta-row {
+display: flex;
+flex-wrap: wrap;
+gap: 1.5rem;
+font-size: 0.82rem;
+color: #a09880;
+margin-top: 0.5rem;
+}
+
+.meta-row span { display: flex; align-items: center; gap: 0.4rem; }
+
+/* ── NAV ── */
+nav {
+background: white;
+border-bottom: 1px solid var(--divider);
+position: sticky;
+top: 0;
+z-index: 100;
+box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.nav-inner {
+max-width: 780px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+gap: 0;
+overflow-x: auto;
+scrollbar-width: none;
+}
+
+.nav-inner::-webkit-scrollbar { display: none; }
+
+nav a {
+min-height: 44px;
+flex-shrink: 0;
+display: block;
+padding: 0.9rem 1.1rem;
+font-size: 0.75rem;
+font-weight: 500;
+letter-spacing: 0.05em;
+text-decoration: none;
+color: var(--muted);
+white-space: nowrap;
+border-bottom: 2px solid transparent;
+transition: all 0.2s;
+}
+
+nav a:hover {
+color: var(--accent);
+border-bottom-color: var(--accent);
+}
+
+/* ── MAIN ── */
+main {
+max-width: 780px;
+margin: 0 auto;
+padding: 2rem 1.2rem 4rem;
+}
+
+/* ── INTRO BOX ── */
+.intro-box {
+background: var(--ink);
+color: var(--paper);
+border-radius: 4px;
+padding: 2rem 2.2rem;
+margin: 2.5rem 0 3rem;
+position: relative;
+}
+
+.intro-box::before {
+position: absolute;
+top: -14px; left: 20px;
+font-size: 1.4rem;
+}
+
+.intro-box h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1rem;
+font-weight: 700;
+margin-bottom: 0.8rem;
+color: var(--accent-soft);
+letter-spacing: 0.04em;
+}
+
+.intro-box p {
+font-size: 0.88rem;
+line-height: 1.7;
+color: #c8bfb0;
+}
+
+.intro-box ul {
+margin-top: 0.8rem;
+padding-left: 1.2rem;
+font-size: 0.85rem;
+color: #c8bfb0;
+}
+
+.intro-box ul li { margin-bottom: 0.3rem; }
+
+/* ── SECTION ── */
+.section {
+margin-bottom: 4.5rem;
+scroll-margin-top: 80px;
+}
+
+.section-header {
+display: flex;
+align-items: baseline;
+gap: 1rem;
+margin-bottom: 0.4rem;
+}
+
+.section-num {
+font-family: 'Playfair Display', serif;
+font-size: 3rem;
+font-weight: 700;
+color: var(--accent);
+opacity: 0.3;
+line-height: 1;
+flex-shrink: 0;
+}
+
+.section h2 {
+font-family: 'Playfair Display', serif;
+font-size: 1.5rem;
+font-weight: 700;
+line-height: 1.25;
+color: var(--ink);
+}
+
+hr.section-rule {
+border: none;
+border-top: 1px solid var(--divider);
+margin-bottom: 1.8rem;
+}
+
+/* ── SCRIPT BLOCKS ── */
+.script-block {
+background: var(--paper);
+border-left: 3px solid var(--accent);
+border-radius: 0 4px 4px 0;
+padding: 1.5rem 1.8rem;
+margin-bottom: 1.2rem;
+font-size: 0.95rem;
+line-height: 1.85;
+position: relative;
+box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.script-label {
+font-size: 0.65rem;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+color: var(--accent);
+font-weight: 600;
+margin-bottom: 0.6rem;
+}
+
+.script-block p { margin-bottom: 0.8rem; }
+.script-block p:last-child { margin-bottom: 0; }
+
+/* ── ANIMATOR NOTES ── */
+.anim-note {
+background: var(--note-bg);
+color: var(--note-text);
+border-radius: 4px;
+padding: 1rem 1.4rem;
+margin-bottom: 1.2rem;
+font-size: 0.82rem;
+line-height: 1.65;
+display: flex;
+gap: 0.8rem;
+align-items: flex-start;
+}
+
+.anim-note .icon {
+font-size: 1rem;
+flex-shrink: 0;
+margin-top: 0.1rem;
+}
+
+.anim-note strong {
+color: #c9a4ff;
+font-weight: 500;
+display: block;
+margin-bottom: 0.2rem;
+font-size: 0.72rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+}
+
+/* ── PAUSE CARD ── */
+.pause-card {
+border: 1.5px dashed var(--accent-soft);
+border-radius: 4px;
+padding: 1rem 1.4rem;
+margin-bottom: 1.2rem;
+font-size: 0.84rem;
+color: var(--muted);
+display: flex;
+gap: 0.8rem;
+align-items: flex-start;
+}
+
+.pause-card .icon { font-size: 1rem; flex-shrink: 0; }
+
+/* ── KEY IDEA ── */
+.key-idea {
+background: var(--highlight);
+border-radius: 4px;
+padding: 1.2rem 1.6rem;
+margin: 1.5rem 0;
+font-family: 'Playfair Display', serif;
+font-style: italic;
+font-size: 1.05rem;
+line-height: 1.6;
+color: var(--ink);
+border-left: none;
+text-align: right;
+}
+
+/* ── RESOURCES ── */
+.resource-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+gap: 1rem;
+margin-top: 1.5rem;
+}
+
+.resource-card {
+background: var(--paper);
+border-radius: 4px;
+padding: 1.2rem 1.4rem;
+box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.resource-card h4 {
+font-weight: 500;
+font-size: 0.9rem;
+margin-bottom: 0.4rem;
+color: var(--ink);
+}
+
+.resource-card p {
+font-size: 0.78rem;
+color: var(--muted);
+line-height: 1.5;
+}
+
+.resource-card .num {
+display: inline-block;
+background: var(--accent);
+color: white;
+font-size: 0.75rem;
+font-weight: 500;
+padding: 0.15rem 0.5rem;
+border-radius: 2px;
+margin-top: 0.5rem;
+}
+
+/* ── CONCLUSION ── */
+.conclusion {
+background: var(--paper);
+color: var(--ink);
+border-radius: 4px;
+padding: 2.5rem 2.2rem;
+margin-top: 3rem;
+}
+
+.conclusion .script-block {
+background: var(--paper);
+border-left-color: var(--accent-soft);
+color: var(--ink);
+box-shadow: none;
+}
+
+.conclusion .script-label { color: var(--accent-soft); }
+.conclusion .anim-note { background: rgba(255,255,255,0.05); }
+
+.conclusion h2 {
+font-family: 'Playfair Display', serif;
+font-size: 1.4rem;
+margin-bottom: 1.5rem;
+color: var(--accent-soft);
+}
+
+/* ── FOOTER ── */
+footer {
+text-align: center;
+padding: 2rem;
+font-size: 0.75rem;
+color: var(--muted);
+border-top: 1px solid var(--divider);
+}
+
+/* ── PRINT ── */
+@media print {
+nav, header::before, header::after { display: none; }
+.section { page-break-inside: avoid; }
+}
+
+/* ── ANIMATIONS ── */
+.section {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+@keyframes fadeUp {
+to { opacity: 1; transform: translateY(0); }
+}
+
+.section:nth-child(1) { animation-delay: 0.05s; }
+.section:nth-child(2) { animation-delay: 0.12s; }
+.section:nth-child(3) { animation-delay: 0.19s; }
+.section:nth-child(4) { animation-delay: 0.26s; }
+.section:nth-child(5) { animation-delay: 0.33s; }
+.section:nth-child(6) { animation-delay: 0.40s; }
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="tag">Script théorique · Document des animateurs</span>
+    <h1>Anxiété &amp; <em>isolement social</em></h1>
+    <div class="meta-row">
+      <span>~20 minutes</span>
+      <span>16–21 ans · jeunes en situation de précaire</span>
+      <span>L'Antre-Temps</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#s1">1 · Santé mentale</a>
+    <a href="#s2">2 · Anxiété</a>
+    <a href="#s3">3 · Facteurs</a>
+    <a href="#s4">4 · Conséquences</a>
+    <a href="#s5">5 · Prévention</a>
+    <a href="#s6">6 · Ressources</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="intro-box">
+    <h3>Avant-propos</h3>
+    <p>Le script suivant est conçu pour servir de base. Nous nous devrons de bien connaître notre matière, puisque l'atelier va se dérouler plutôt dans un style improvisé où nous allons interagir fluidement avec la clientèle. Les blocs <span style="color:var(--accent-soft)">script</span> peuvent être dit à voix haute, comme tel. Les <span style="color:#c9a4ff">notes de lecture</span> sont identifiées en violet. Ne pas oublier les pauses et les silences, certains seront identifiés.</p>
+    <ul>
+      <li>Voir le timing en fonction du powerpoint</li>
+      <li>Si un jeune intervient sur un point personnel, prendre la méthode d'intervention suivante (ou quelque chose de ce genre) : <em>« On va y revenir — t'as mis le doigt sur quelque chose d'important. »</em></li>
+      <li>La présence est plus importante que la présentation. Les mots seront des mots, mais ce sont les sourires qui voudront tout dire.</li>
+    </ul>
+  </div>
+
+  <!-- ════════════════════════════════════ 1 ════ -->
+
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">1</span>
+      <h2>Qu'est-ce que la santé mentale?</h2>
+    </div>
+    <hr class="section-rule">
+
+
+<div class="anim-note">
+  <div><strong>Intention</strong>Déstigmatiser dès le départ. Les jeunes doivent pouvoir entrer dans le sujet sans se sentir pointés du doigt. Faire attention à ne pas les catégoriser comme des "jeunes à problèmes".</div>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script</div>
+  <p>« Avant de plonger dans l'anxiété, j'aimerais qu'on parte d'une idée plus large. La santé mentale : c'est un mot qu'on entend souvent, mais qu'est-ce que ça veut vraiment dire selon vous? »</p>
+  <p>« Quand on pense à la santé physique, on pense au corps : dormir, manger, bouger, ne pas se blesser. La santé mentale, c'est la même logique, mais pour le cerveau, les émotions. C'est notre capacité à traverser des moments difficiles, à apprendre, à garder du lien avec les autres, à avancer même quand c'est pas évident. »</p>
+  <p>« Et une chose importante à savoir : la santé mentale, c'est pas noir ou blanc. C'est pas : soit tout va parfaitement bien, soit tu vas exploser dans deux jours. Ça monte, ça descend, selon ce qu'on traverse. »</p>
+</div>
+
+<div class="pause-card">
+  <span><strong>Pause :</strong> « Est-ce que vous avez déjà eu une période dans votre vie où vous sentiez que quelque chose prenait beaucoup de place dans vos pensées? » — pas besoin de réponses, juste laisser la question flotter. Si le temps et l'atmosphère s'y prêtent, faire le jeu "la position de l'arbre".</span>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script</div>
+  <p>« Ce qu'on veut retenir ici, c'est que d'avoir une bonne santé mentale, c'est pas être heureux à 100%, tout le temps. C'est juste d'avoir un certain équilibre pour traverser les vagues. Et quand les vagues sont trop fortes, c'est là qu'il va être important de chercher des outils ou du soutien, mais ça, on y reviendra. »</p>
+</div>
+
+<div class="key-idea">« Les émotions sont comme des vagues, on ne peut pas les empêcher d'arriver, mais on peut choisir sur laquelle on veut surfer. »
+    <p>- Joseph Goldstein</p>
+</div>
+
+
+  </div>
+
+  <!-- ════════════════════════════════════ 2 ════ -->
+
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">2</span>
+      <h2>Qu'est-ce que l'anxiété?</h2>
+    </div>
+    <hr class="section-rule">
+
+
+<div class="anim-note">
+  <div><strong>Intention</strong>Normaliser l'anxiété comme mécanisme, avant d'expliquer quand elle devient problématique. Faire attention à ne pas donner aux jeunes le besoin de se séparer complètement de leur anxiété : l'alarme sert quelque chose, au départ.</div>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script</div>
+  <p>« L'anxiété, à la base, c'est une alarme que notre cerveau a développée pour nous protéger. Quand il détecte un danger — ou même juste quelque chose d'incertain — il envoie un signal d'alerte. Le cœur accélère, la respiration change, les muscles se tendent. Tout ça, c'est le corps qui se prépare. »</p>
+  <p>« En soi, c'est pas une mauvaise chose. L'anxiété avant une entrevue de job, avant une conversation difficile, avant quelque chose qui compte, c'est humain. C'est le signal que quelque chose est important pour nous. »</p>
+  <p>« Le problème, c'est pas d'avoir de l'anxiété. Le problème, c'est quand l'alarme sonne trop souvent, trop fort, ou pour des situations qui ne sont pas réellement dangereuses. Quand ça prend trop de place et que ça commence à nuire au quotidien : le sommeil, les sorties, les relations, le fonctionnement. »</p>
+  <p>« Il y a une ligne entre le stress normal et l'anxiété envahissante, et c'est surtout une question d'intensité et de durée. »</p>
+</div>
+
+<div class="anim-note">
+  <div><strong>« Et c'est quoi la différence entre le stress et l'anxiété? »</strong>Garder en tête la notion de base : le stress, c'est une réaction physiologique à une situation de danger, qu'il soit réel ou perçu. L'anxiété, c'est une crainte : c'est préemptif et, souvent, ça peut mener à de la détresse psychologique considérable. Si le temps et l'atmosphère du groupe s'y prêtent, raconter la vague : la belle vie, la noyade (stresseur), puis la peur de l'eau, de la plage, même se faire offrir d'aller se baigner nous fait paniquer (anxiété débordante).</div>
+</div>
+
+  </div>
+
+  <!-- ════════════════════════════════════ 3 ════ -->
+
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">3</span>
+      <h2>Les facteurs de risque</h2>
+    </div>
+    <hr class="section-rule">
+
+
+<div class="anim-note">
+  <div><strong>Attention particulière</strong>C'est la section la plus délicate avec cette clientèle. Éviter de lire une liste, ça ressemble à un profil. Le but est de valider leurs réalités sans les réduire à leurs conditions. Parler avec, pas de.</div>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script</div>
+  <p>« L'anxiété, ça ne vient pas de nulle part : il y a plusieurs causes possibles. Une partie est codée en nous : la biologie, le tempérament, la génétique; et une grosse partie vient de ce qu'on a vécu. »</p>
+  <p>« Des expériences difficiles — de la violence, une perte, de l'instabilité, du rejet — ça peut vraiment user le système nerveux et nous laisser plus vulnérable à faire de l'anxiété. Ça ne veut pas dire qu'on est faible, plutôt, notre corps se sera habitué à rester en mode "survie". Il sera donc plus à risque d'allumer les signaux d'alarme, même si une situation ne nous met pas dans un danger réel. »</p>
+</div>
+
+<div class="pause-card">
+  <span>Ne pas trop y aller vite avec ces informations. Rester attentif aux réactions et modifier l'explication selon ce que le groupe dégage.</span>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script (suite)</div>
+  <p>« D'autres facteurs qui peuvent amplifier l'anxiété : l'insécurité liée au logement ou à l'argent, l'exclusion, la pression du groupe, la consommation comme moyen de s'apaiser... ça peut aider à court terme, mais qui peut aussi compliquer les choses par après. »</p>
+  <p>« Ce qu'il faut retenir, c'est ça : l'anxiété, c'est souvent une réponse logique à des conditions de vie qui sont épuisantes. »</p>
+</div>
+
+  </div>
+
+  <!-- ════════════════════════════════════ 4 ════ -->
+
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">4</span>
+      <h2>Les conséquences</h2>
+    </div>
+    <hr class="section-rule">
+
+
+<div class="anim-note">
+  <div><strong>Intention</strong>Montrer comment l'anxiété et l'isolement se nourrissent mutuellement. Le cercle vicieux doit être expliqué clairement, sans catastrophisme.</div>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script</div>
+  <p>« Quand l'anxiété est trop présente, elle commence à déborder sur toutes les sphères de la vie. Physiquement : fatigue, insomnies, maux de tête, tensions dans le corps, troubles digestifs. Mentalement : difficulté à se concentrer, pensées en boucle, irritabilité, vision plus sombre de l'avenir. »</p>
+  <p>« Mais il y a quelque chose de particulièrement important pour ce qu'on fait aujourd'hui, c'est le lien entre l'anxiété et l'isolement. »</p>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script — le cercle vicieux</div>
+  <p>« L'anxiété, ça pousse souvent à éviter. On évite les endroits, les situations, les gens, parce que ça fait moins peur comme ça : pas de gens, pas de contacts, aucun risque. À court terme, ça soulage vraiment, mais le cerveau, à la longue, il enregistre : "Ah, c'était donc dangereux." »</p>
+  <p>« Donc, la prochaine fois que cette situation revient, l'alarme sonne encore plus fort. Et on évite encore plus. Et plus on évite, plus on se retrouve seul. Et plus on est seul, plus les pensées anxieuses ont de la place. C'est un cercle viscieux et plus on tourne dedans, plus il est dur à briser. »</p>
+</div>
+
+<div class="anim-note">
+  <div><strong>Optionnel</strong>Faire un lien avec le téléphone cellulaire. Pour appuyer visuellement, dessiner ce cercle sur un tableau : Anxiété → Évitement (mécanisme de défense) → Soulagement court terme → Peur amplifiée → Isolement → Anxiété.</div>
+</div>
+
+<div class="key-idea">« L'anxiété se produit lorsque vous pensez devoir tout résoudre d'un seul coup. »
+    <p>Karen Salmansohn</p>
+</div>
+
+  </div>
+
+  <!-- ════════════════════════════════════ 5 ════ -->
+
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">5</span>
+      <h2>Prévenir chez soi et aider ses pairs</h2>
+    </div>
+    <hr class="section-rule">
+
+
+<div class="anim-note">
+  <div><strong>Intention</strong>Finir sur quelque chose de concret et d'accessible et valoriser le rôle des pairs, qui est souvent le premier filet de sécurité chez notre clientèle.</div>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script — pour soi</div>
+  <p>« La bonne nouvelle, c'est qu'il y a des choses simples qu'on peut faire et qui font une vraie différence. Rien de magique bien sûr, mais ça peut servir de bouée quand les vagues deviennent trop fortes. »</p>
+  <p>« Par exemple : ralentir sa respiration quand l'alarme sonne; bouger un peu — marcher cinq minutes change vraiment l'état du corps; réduire les stimulants qui amplifient l'anxiété, comme la caféine; dormir des bonnes heures, même si c'est pas toujours évident; identifier ce qui déclenche l'alarme, pour la comprendre au lieu de juste la subir; et finalement mettre des mots sur ce qu'on vit. Soit avec quelqu'un, ou même juste pour soi. »</p>
+  <p>« Nommer ce qu'on ressent, ça a l'air simple, mais quand on dit "là je me sens dépassé", on reprend déjà un peu de contrôle sur quelque chose qui pouvait sembler flou. »</p>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script — pour aider un pair</div>
+  <p>« Si quelqu'un autour de vous traverse quelque chose de difficile, vous n'avez pas besoin d'avoir toutes les réponses. Le plus important, c'est d'être là. »</p>
+  <p>« Des phrases simples qui ouvrent la porte : "Je suis là." "T'es pas seul avec ça." "Veux-tu qu'on marche ensemble?" »</p>
+  <p>« À l'inverse, certaines phrases ferment la porte même si c'est pas l'intention : "Calme-toi", "C'est rien", "T'exagères". Ces phrases-là, même bien intentionnées, disent à la personne que ce qu'elle ressent est exagéré ou pas réel. »</p>
+  <p>« L'idée, c'est pas de minimiser : c'est de valider, de rester, et d'aider la personne à aller vers une ressource si c'est nécessaire. »</p>
+</div>
+
+
+  </div>
+
+  <!-- ════════════════════════════════════ 6 ════ -->
+
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">6</span>
+      <h2>Les ressources disponibles</h2>
+    </div>
+    <hr class="section-rule">
+
+
+<div class="anim-note">
+    <div><strong>Intention</strong>Présenter les ressources de façon humaine, pas comme une liste à réciter. Et insister sur le fait que L'Antre-Temps elle-même est une ressource de première ligne.</div>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script</div>
+  <p>« Avant de terminer, on voulait vous parler de ressources, parce que des fois, les petits gestes qu'on vient de nommer, c'est pas suffisant, et c'est correct. Il y a des gens formés pour aider. »</p>
+</div>
+
+<div class="resource-grid">
+  <div class="resource-card">
+    <h4>Info-Social</h4>
+    <p>Intervenant psychosocial, gratuit, confidentiel, 24/7. Pour parler à quelqu'un rapidement sans rendez-vous.</p>
+    <span class="num">811</span>
+  </div>
+  <div class="resource-card">
+    <h4>Tel-jeunes</h4>
+    <p>Soutien par texto, téléphone ou clavardage. Spécialement pour les jeunes.</p>
+    <span class="num">514-800-1002 (texto)</span><br>
+    <span class="num">1-800-263-2266</span>
+    <span class="num">https://www.teljeunes.com/</span>
+  </div>
+  <div class="resource-card">
+    <h4>Jeunesse, J'écoute (Kids Help Phone)</h4>
+    <p>Service canadien bilingue, disponible 24/7 par texto ou téléphone.</p>
+    <span class="num">CONNECT → 686868 (texto)</span><br>
+    <span class="num">1-800-668-6868</span>
+    <span class="num">https://jeunessejecoute.ca/</span>
+  </div>
+  <div class="resource-card">
+    <h4>Centre de Prévention du Suicide de Montréal (anciennement Suicide Action Montréal)</h4>
+    <p>Service d'urgence suicidaire par téléphone ou texto.</p>
+    <span class="num">535353 (texto)</span>
+    <span class="num">1-866 APPELLE (1-866-277-3553)</span>
+    <span class="num">https://suicide.ca/</span>
+  </div>
+  <div class="resource-card">
+    <h4>L'Antre-Temps</h4>
+    <p>Vous êtes ici. C'est aussi une ressource. L'équipe peut vous accompagner si vous avez besoin.</p>
+    <span class="num">Ici, maintenant</span>
+  </div>
+</div>
+
+<div class="script-block" style="margin-top:1.5rem">
+  <div class="script-label">Script (suite)</div>
+  <p>« La règle simple qu'on veut laisser ici : on n'attend pas d'être au fond pour demander de l'aide. Si ça déborde, si c'est trop lourd, si quelqu'un autour de vous ne va vraiment pas — on cherche du soutien tôt. Ça fait une vraie différence. »</p>
+  <p>« Et si la situation est urgente ou qu'il y a un danger immédiat : le 911. »</p>
+</div>
+
+
+  </div>
+
+  <!-- ════════════════════════════════════ CONCLUSION ════ -->
+
+  <div class="conclusion">
+    <h2>Conclusion de la portion théorique</h2>
+
+
+<div class="anim-note">
+  <div><strong>Intention</strong>Terminer sur un mot poignant, mais une attitude d'espoir et de confiance.</div>
+</div>
+
+<div class="script-block">
+  <div class="script-label">Script</div>
+  <p>« Pour résumer : la santé mentale, ça fluctue et c'est normal. L'anxiété, c'est une alarme utile, mais parfois elle reste allumée trop longtemps, pas parce qu'on est faible, mais parce qu'on a vécu des choses difficiles. »</p>
+  <p>« L'isolement peut sembler protéger à court terme. Mais à long terme, c'est souvent lui qui entretient le problème. »</p>
+  <p>« Et la bonne nouvelle — et c'est celle qu'on veut laisser — c'est que des gestes simples existent. Des gens existent. Et le fait d'en parler, même aujourd'hui ici, c'est déjà quelque chose. »</p>
+</div>
+
+<div class="pause-card" style="border-color:rgba(255,255,255,0.2); color:#a09880; background:rgba(255,255,255,0.04)">
+  <span>Évaluer la vibe du groupe après cette portion. Continuer tout de suite? Prendre une pause? Changer de vibe?</span>
+</div>
+
+  </div>
+
+</main>
+
+<footer>
+  Atelier Anxiété &amp; Isolement social · &copy; Félix Routhier, 30 mars 2026
+</footer>
+
+</body>
+</html>
