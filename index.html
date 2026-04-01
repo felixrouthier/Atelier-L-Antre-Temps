@@ -358,32 +358,6 @@ border-radius: 2px;
 margin-top: 0.5rem;
 }
 
-/* ── CONCLUSION ── */
-.conclusion {
-background: var(--paper);
-color: var(--ink);
-border-radius: 4px;
-padding: 2.5rem 2.2rem;
-margin-top: 3rem;
-}
-
-.conclusion .script-block {
-background: var(--paper);
-border-left-color: var(--accent-soft);
-color: var(--ink);
-box-shadow: none;
-}
-
-.conclusion .script-label { color: var(--accent-soft); }
-.conclusion .anim-note { background: rgba(255,255,255,0.05); }
-
-.conclusion h2 {
-font-family: 'Playfair Display', serif;
-font-size: 1.4rem;
-margin-bottom: 1.5rem;
-color: var(--accent-soft);
-}
-
 /* ── FOOTER ── */
 footer {
 text-align: center;
@@ -424,6 +398,7 @@ to { opacity: 1; transform: translateY(0); }
 .section:nth-child(4) { animation-delay: 0.26s; }
 .section:nth-child(5) { animation-delay: 0.33s; }
 .section:nth-child(6) { animation-delay: 0.40s; }
+.section:nth-child(6) { animation-delay: 0.55s; }
 </style>
 
 </head>
@@ -449,6 +424,7 @@ to { opacity: 1; transform: translateY(0); }
     <a href="#s4">4 · Conséquences</a>
     <a href="#s5">5 · Prévention</a>
     <a href="#s6">6 · Ressources</a>
+    <a href="#s7">7 · Conclusion</a>
   </div>
 </nav>
 
@@ -693,9 +669,12 @@ to { opacity: 1; transform: translateY(0); }
 
   <!-- ════════════════════════════════════ CONCLUSION ════ -->
 
-  <div class="conclusion">
-    <h2>Conclusion de la portion théorique</h2>
-
+  <div class="section" id="s7">
+    <div class="section-header">
+          <span class="section-num">7</span>
+          <h2>Conclusion de la portion théorique</h2>
+        </div>
+        <hr class="section-rule">
 
 <div class="anim-note">
   <div><strong>Intention</strong>Terminer sur un mot poignant, mais une attitude d'espoir et de confiance.</div>
